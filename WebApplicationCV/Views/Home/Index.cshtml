@@ -1,0 +1,33 @@
+﻿@model ConsoleAppCV.CV
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>CV di @Model.InformazioniPersonali.Cognome @Model.InformazioniPersonali.Nome</h1>
+
+<h2>Informazioni Personali</h2>
+<p>Nome: @Model.InformazioniPersonali.Nome</p>
+<p>Cognome: @Model.InformazioniPersonali.Cognome</p>
+<p>Telefono: @Model.InformazioniPersonali.Telefono</p>
+<p>Email: @Model.InformazioniPersonali.Email</p>
+
+<h2>Studi Effettuati</h2>
+@foreach (var studio in Model.StudiEffettuati)
+{
+    <p>Qualifica: @studio.Qualifica</p>
+    <p>Istituto: @studio.Istituto</p>
+    <p>Tipo: @studio.Tipo</p>
+    <p>Dal: @studio.Dal</p>
+    <p>Al: @studio.Al</p>
+}
+
+<h2>Impieghi</h2>
+@foreach (var impiego in Model.Impieghi)
+{
+    <p>Azienda: @impiego.Esperienza.Azienda</p>
+    <p>Job Title: @impiego.Esperienza.jobTitle</p>
+    <p>Dal: @impiego.Esperienza.Dal</p>
+    <p>Al: @impiego.Esperienza.Al</p>
+    <p>Descrizione: @impiego.Esperienza.Descrizione</p>
+    <p>Compiti: @impiego.Esperienza.Compiti</p>
+}
